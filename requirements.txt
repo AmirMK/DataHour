@@ -1,0 +1,6 @@
+numpy
+pandas
+streamlit
+sckit-learn==0.18.3
+omnixai==1.1.2
+dill==0.3.5.1
