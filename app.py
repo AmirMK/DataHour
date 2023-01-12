@@ -77,6 +77,7 @@ if btn_predict:
     input_data = np.column_stack([Area, Age, Type, Price_Range, Capacity, Item])
     X = pd.DataFrame(input_data,columns=['Area', 'Age', 'Type','Price Range','Capacity','Number of Menu Items'])
     pred = model.predict(X)
+    value = "{:,.2f}".format(pred[0]/1000)
     
     tabular_data = Tabular(
     data=X,
@@ -92,7 +93,7 @@ if btn_predict:
                     columns=['values'])
     data['positive'] = data['values'] > 0
     
-    st.success('Proftibiltiy is '+str(pred[0]))
+    st.success('Proftibiltiy is $'+value+"K")
     st.pyplot(data['values'].plot(kind='barh', color=data.positive.map({True: 'b', False: 'r'})).figure)
 
 
